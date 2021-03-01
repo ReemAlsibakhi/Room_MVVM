@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.reemsib.task1.ui.login.signUp.RegisterFragment"
+        android:label="register_fragment"
+        tools:layout="@layout/register_fragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_viewUsersFragment"
+            app:destination="@id/viewUsersFragment" />
+        <!--        <action-->
+<!--            android:id="@+id/action_registerFragment_to_viewUsersFragment"-->
+<!--            app:destination="@id/viewUsersFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.reemsib.task1.ui.login.signIn.SignInFragment"
+        android:label="sign_in_fragment"
+        tools:layout="@layout/sign_in_fragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_viewUsersFragment"
+            app:destination="@id/viewUsersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewUsersFragment"
+        android:name="com.reemsib.task1.ui.alIUsers.ViewUsersFragment"
+        android:label="ViewUsersFragment"
+        tools:layout="@layout/view_users_fragment">
+        <action
+            android:id="@+id/action_viewUsersFragment_to_updateInfoFragment"
+            app:destination="@id/updateInfoFragment" />
+        <action
+            android:id="@+id/action_viewUsersFragment_to_detailUserFragment"
+            app:destination="@id/detailUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateInfoFragment"
+        android:name="com.reemsib.task1.ui.updateInfo.UpdateInfoFragment"
+        android:label="update_info_fragment"
+        tools:layout="@layout/update_info_fragment" >
+
+        <argument
+            android:name="user"
+            app:argType="com.reemsib.task1.room.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailUserFragment"
+        android:name="com.reemsib.task1.ui.userDetail.DetailUserFragment"
+        android:label="detail_user_fragment"
+        tools:layout="@layout/detail_user_fragment" >
+
+        <argument
+            android:name="userDetail"
+            app:argType="com.reemsib.task1.room.User" />
+    </fragment>
+</navigation>
